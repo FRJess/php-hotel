@@ -62,8 +62,24 @@ $hotels = [
 </head>
 
 <body>
+  <div class="container m-3">
 
-  <table class="table table-striped m-3">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+      <label class="form-check-label" for="inlineRadio1">Con parcheggio</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+      <label class="form-check-label" for="inlineRadio2">Senza parcheggio</label>
+    </div>
+
+  </div>
+
+
+
+
+
+  <table class="table table-warning table-striped m-3">
     <thead>
       <tr>
         <th scope="col">Nome</th>
