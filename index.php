@@ -74,16 +74,22 @@ $hotels = [
       </div>
     </div>
 
-    <div class="col-5">
-      <select class="form-select" aria-label="form-select example">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
+    <div class="col-6">
+      <!-- <label for="inputVoto" class="col-sm-2 col-form-label">Voto</label> -->
+      <div class="col-sm-10">
+        <select class="form-select" aria-label="form-select example">
+          <option selected></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+
+      </div>
 
     </div>
-    <div class="col-3">
+    <div class="col-2">
       <button type="submit" class="btn btn-primary">Cerca</button>
       <button type="button" class="btn btn-secondary">Annulla</button>
     </div>
