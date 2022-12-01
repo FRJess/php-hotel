@@ -62,18 +62,33 @@ $hotels = [
 </head>
 
 <body>
-  <div class="container m-3">
-
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-      <label class="form-check-label" for="inlineRadio1">Con parcheggio</label>
+  <form class="row m-3">
+    <div class="col-4">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+        <label class="form-check-label" for="inlineRadio1">Con parcheggio</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+        <label class="form-check-label" for="inlineRadio2">Senza parcheggio</label>
+      </div>
     </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-      <label class="form-check-label" for="inlineRadio2">Senza parcheggio</label>
+
+    <div class="col-5">
+      <select class="form-select" aria-label="form-select example">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+
+    </div>
+    <div class="col-3">
+      <button type="submit" class="btn btn-primary">Cerca</button>
+      <button type="button" class="btn btn-secondary">Annulla</button>
     </div>
 
-  </div>
+  </form>
 
 
 
