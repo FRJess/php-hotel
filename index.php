@@ -63,7 +63,7 @@ $hotels = [
 
 <body>
 
-  <table class="table">
+  <table class="table table-striped m-3">
     <thead>
       <tr>
         <th scope="col">Nome</th>
@@ -74,23 +74,25 @@ $hotels = [
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
+      <?php foreach ($hotels as $hotel) : ?>
+        <tr>
+          <?php foreach ($hotel as $key => $value) : ?>
+            <?php if ($key === 'parking' && $value) : ?>
+              <td>
+                <?php echo "SI" ?>
+              </td>
+            <?php elseif ($key === 'parking' && !$value) : ?>
+              <td>
+                <?php echo "NO" ?>
+              </td>
+            <?php else : ?>
+              <td>
+                <?php echo $value ?>
+              </td>
+            <?php endif ?>
+          <?php endforeach ?>
+        </tr>
+      <?php endforeach ?>
     </tbody>
   </table>
 
