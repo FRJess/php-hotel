@@ -72,26 +72,33 @@ $filtered_hotels = $hotels;
 //CON ARRAY FUNZIONI (array_filter)
 
 //function to check if parking is true or false
-function checkParking($hotel)
-{
-  return $hotel['parking'] == $_GET['parking'];
-}
+// function checkParking($hotel)
+// {
+//   return $hotel['parking'] == $_GET['parking'];
+// }
 
-//function to check the vote, if vote is >= vote in GET so true
-function checkVote($hotel)
-{
-  return $hotel['vote'] >= $_GET['vote'];
-}
+// //function to check the vote, if vote is >= vote in GET so true
+// function checkVote($hotel)
+// {
+//   return $hotel['vote'] >= $_GET['vote'];
+// }
 
+// if (!empty($_GET['parking']) || (isset($_GET['parking']) && empty($_GET['parking']))) {
+//   $filtered_hotels = array_filter($filtered_hotels, 'checkParking');
+// }
+
+// if (!empty($_GET['vote'])) {
+//   $filtered_hotels = array_filter($filtered_hotels, 'checkVote');
+// }
+
+//CON ARROW FUNZIONI (array_filter)
 if (!empty($_GET['parking']) || (isset($_GET['parking']) && empty($_GET['parking']))) {
-  $filtered_hotels = array_filter($filtered_hotels, 'checkParking');
+  $filtered_hotels = array_filter($filtered_hotels, fn ($hotel) => $hotel['parking'] == $_GET['parking']);
 }
 
 if (!empty($_GET['vote'])) {
-  $filtered_hotels = array_filter($filtered_hotels, 'checkVote');
+  $filtered_hotels = array_filter($filtered_hotels, fn ($hotel) => $hotel['vote'] >= $_GET['vote']);
 }
-
-//CON ARROW FUNZIONI (array_filter)
 
 ?>
 
