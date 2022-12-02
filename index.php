@@ -43,30 +43,55 @@ $hotels = [
 //di default l'elenco filtrato è l'elenco pieno
 $filtered_hotels = $hotels;
 
-if (!empty($_GET['parking'])) {
-  $temp_hotels = [];
-  foreach ($filtered_hotels as $hotel) {
-    if ($hotel['parking']) $temp_hotels[] = $hotel;
-  }
-  $filtered_hotels = $temp_hotels;
+//SENZA FUNZIONI
+// if (!empty($_GET['parking'])) {
+//   $temp_hotels = [];
+//   foreach ($filtered_hotels as $hotel) {
+//     if ($hotel['parking']) $temp_hotels[] = $hotel;
+//   }
+//   $filtered_hotels = $temp_hotels;
+// }
+
+// //se ho scelto senza parcheggio verifico l'esistenza del parametro parking in GET e che sia vuoto
+// if (isset($_GET['parking']) && empty($_GET['parking'])) {
+//   $temp_hotels = [];
+//   foreach ($filtered_hotels as $hotel) {
+//     if (!$hotel['parking']) $temp_hotels[] = $hotel;
+//   }
+//   $filtered_hotels = $temp_hotels;
+// }
+
+// if (!empty($_GET['vote'])) {
+//   $temp_hotels = [];
+//   foreach ($filtered_hotels as $hotel) {
+//     if ($hotel['vote'] >= $_GET['vote']) $temp_hotels[] = $hotel;
+//   }
+//   $filtered_hotels = $temp_hotels;
+// }
+
+//CON ARRAY FUNZIONI (array_filter)
+
+//function to check if parking is true or false
+function checkParking($hotel)
+{
+  return $hotel['parking'] == $_GET['parking'];
 }
 
-//se ho scelto senza parcheggio verifico l'esistenza del parametro parking in GET e che sia vuoto
-if (isset($_GET['parking']) && empty($_GET['parking'])) {
-  $temp_hotels = [];
-  foreach ($filtered_hotels as $hotel) {
-    if (!$hotel['parking']) $temp_hotels[] = $hotel;
-  }
-  $filtered_hotels = $temp_hotels;
+//function to check the vote, if vote is >= vote in GET so true
+function checkVote($hotel)
+{
+  return $hotel['vote'] >= $_GET['vote'];
+}
+
+if (!empty($_GET['parking']) || (isset($_GET['parking']) && empty($_GET['parking']))) {
+  $filtered_hotels = array_filter($filtered_hotels, 'checkParking');
 }
 
 if (!empty($_GET['vote'])) {
-  $temp_hotels = [];
-  foreach ($filtered_hotels as $hotel) {
-    if ($hotel['vote'] >= $_GET['vote']) $temp_hotels[] = $hotel;
-  }
-  $filtered_hotels = $temp_hotels;
+  $filtered_hotels = array_filter($filtered_hotels, 'checkVote');
 }
+
+//CON ARROW FUNZIONI (array_filter)
 
 ?>
 
