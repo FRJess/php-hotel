@@ -96,10 +96,6 @@ $hotels = [
 
   </form>
 
-
-
-
-
   <table class="table table-warning table-striped m-3">
     <thead>
       <tr>
@@ -113,21 +109,11 @@ $hotels = [
     <tbody>
       <?php foreach ($hotels as $hotel) : ?>
         <tr>
-          <?php foreach ($hotel as $key => $value) : ?>
-            <?php if ($key === 'parking' && $value) : ?>
-              <td>
-                <?php echo "SI" ?>
-              </td>
-            <?php elseif ($key === 'parking' && !$value) : ?>
-              <td>
-                <?php echo "NO" ?>
-              </td>
-            <?php else : ?>
-              <td>
-                <?php echo $value ?>
-              </td>
-            <?php endif ?>
-          <?php endforeach ?>
+          <td><?php echo $hotel['name'] ?></td>
+          <td><?php echo $hotel['description'] ?></td>
+          <td><?php echo $hotel['parking'] ? 'Si' : 'No' ?></td>
+          <td><?php echo $hotel['vote'] ?></td>
+          <td><?php echo $hotel['distance_to_center'] ?>km</td>
         </tr>
       <?php endforeach ?>
     </tbody>
